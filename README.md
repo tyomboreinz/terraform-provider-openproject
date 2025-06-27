@@ -1,1 +1,1 @@
-### Terraform Provider OpenProject# terraform-provider-openproject
+### Terraform Provider OpenProjec
