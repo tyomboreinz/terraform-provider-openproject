@@ -42,3 +42,14 @@ User can be imported using the `id` field, e.g.
 ```hcl
 terraform import openproject_user.example 70
 ```
+
+### Note
+After performing a `terraform import`, **make sure to add** the following configuration to your resource:
+
+```terraform
+lifecycle {
+  ignore_changes = [password]
+}
+```
+
+This ensures that **the password for an existing user is not changed during a `terraform apply`**.
