@@ -43,6 +43,12 @@ func resourceOpenProjectUser() *schema.Resource {
 				Sensitive: true,
 				ForceNew:  true,
 			},
+			"is_admin": {
+				Type:      schema.TypeBool,
+				Default:   false,
+				Optional:  true,
+				ForceNew:  true,
+			},
 		},
 		Importer: &schema.ResourceImporter{
 			State: resourceOpenProjectUserImport,
@@ -66,7 +72,7 @@ func resourceOpenProjectUserCreate(d *schema.ResourceData, meta interface{}) err
 		"firstName": d.Get("firstname").(string),
 		"lastName":  d.Get("lastname").(string),
 		"email":     d.Get("email").(string),
-		"admin":     false,
+		"admin":     d.Get("is_admin").(bool),
 		"status":    "active",
 		"language":  "en",
 	}

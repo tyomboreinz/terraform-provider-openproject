@@ -17,6 +17,7 @@ resource "openproject_user" "example" {
   first_name = "John"
   last_name  = "Doe"
   password   = "stringpassword"
+  is_admin   = false
 }
 ```
 
